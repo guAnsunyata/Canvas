@@ -1,0 +1,11 @@
+{
+  "name": "canvas-client",
+  "homepage": "https://github.com/guAnsunyata/Canvas",
+  "authors": [
+    "guAnsunyata <guansunyata@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT"
+}
