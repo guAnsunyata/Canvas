@@ -1,0 +1,21 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "Canvas-Auth Platform proto",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "1.14.2",
+    "express": "4.13.3",
+    "handlebars": "^4.0.5",
+    "mongoose": "4.3.4"
+  },
+  "author": "Brad Traversy",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3"
+  }
+}
