@@ -1,6 +1,6 @@
 
-Genre =require('./models/genre');
-Book =require('./models/book');
+Genre =require('../models/genre');
+Book =require('../models/book');
 
 module.exports = function (app, passport) {
 	app.get('/', function(req, res){
