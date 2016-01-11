@@ -7,18 +7,38 @@ var Schema = mongoose.Schema;
 	work : user's works that can be selled
 */
 var userSchema = new Schema({
+	addedTime: Date,
 	profile: {
-		name: String,
-		email: String
+		uName: String,
+		email: String,
+		password: String
 	},
+	isArtist: Number,
 	transmition: {
 		type: Schema.Types.ObjectId,
 		ref: 'transmitionModel'
 	},
 	works: {
-		type: Schema.Types.ObjectId,
-		ref: 'transmitionModel'
-	}
+		quantity: Number,
+		work:{
+			type: Schema.Types.ObjectId,
+			ref: 'workModel'
+		}
+	},
+	favoriteWork: [{
+		score: Number,
+		work:{
+			type: Schema.Types.ObjectId,
+			ref: 'workModel'
+		}	
+	}],
+	favoriteStyle: [{
+		score: Number,
+		style:{
+			type: Schema.Types.ObjectId,
+			ref: 'styeleModel'
+		}
+	}]
 });
 
-module.exports = mongoose.model('userModel', todoSchema);
+module.exports = mongoose.model('userModel', userSchema);

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('./api/db');
 
 app.use(express.static(__dirname+'/client'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //routes
