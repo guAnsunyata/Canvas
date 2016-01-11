@@ -1,0 +1,76 @@
+<!-- ng-view : canvas.html -->
+<img class="banner-img" src="images/banner.jpg"/>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="canvas-banner">
+      	<div class="canvas-logo">
+          <img src="images/canvas.png" height="200" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="side-dashboard">
+	Trading : 128.6 item / month
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="nav-tabs-navigation">
+      	<div class="nav-tabs-wrapper">
+      	  <ul id="canvas-nav-tabs" class="nav nav-tabs" role="tablist">
+      	  	<li role="presentation" class="active"><a href="#works" data-toggle="tab" aria-controls="works">Works</a></li>
+      	  	<li role="presentation"><a href="#artist" data-toggle="tab" aria-controls="artist">Artist</a></li>
+      	  	<li role="presentation"><a href="#instruction" data-toggle="tab" aria-controls="instruction">Instruction</a></li>
+      	  </ul>
+      	</div>
+      </div>
+
+	  <div class="tab-content">
+	  	<div role="tabpanel" class="tab-pane text-center active" id="works">
+	  	  <div class="row">
+
+		  	  <div ng-repeat="work in works">
+				<div class="col-sm-6 col-md-4">
+				  <div class="thumbnail">
+				    <img src="{{work.image}}">
+				    <div class="caption">
+				      <p>{{work.name}}</p>
+				      <p>{{work.artist}}</p>
+				      <p><a href="#" class="btn btn-primary" role="button">Detail</a> <a href="#" class="btn btn-default" role="button">Eye</a></p>
+				    </div>
+				  </div>
+				</div>
+			  </div>
+
+		  </div>
+	  	</div>
+	  	<div role="tabpanel" class="tab-pane text-center" id="artist">
+	  	</div>
+	  	<div role="tabpanel" class="tab-pane text-center" id="instruction">
+	  	  ASDS3
+	  	</div>
+	  </div>
+    
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<script type="text/javascript">
+	$('#canvas-nav-tabs').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	})
+</script>
+</div>

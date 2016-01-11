@@ -1,3 +1,35 @@
-/* embedding font in layout.html*/
+/* global */
+body{
+	background-color: #FFFCF5;
+}
+.origin{
+	color: #EA5D20 !important;
+}
 
-
+/* home */
+.navbar-brand-demo{
+	color: #EA5D20 !important;
+	font-size: 14px !important;
+}
+.canvas-banner{
+	text-align: center;
+}
+.canvas-logo{
+	position: absolute;
+	top: -105px;
+	left: 50%;
+	margin-left: -100px;
+	z-index: 99;
+}
+.banner-img{
+	margin-top: -20px;
+	width: 100%;
+}
+#canvas-nav-tabs{
+	margin-top: 80px;
+}
+.side-dashboard{
+	font-weight: 600;
+	padding-left: 40px;
+	font-size: 26px;
+}
