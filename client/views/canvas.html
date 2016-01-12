@@ -18,7 +18,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" style="min-height: 750px;">
 
       <div class="nav-tabs-navigation">
       	<div class="nav-tabs-wrapper">
@@ -31,17 +31,19 @@
       </div>
 
 	  <div class="tab-content">
-	  	<div role="tabpanel" class="tab-pane text-center active" id="works">
+	  	<div role="tabpanel" class="tab-pane fade text-center in active" id="works">
 	  	  <div class="row">
-
 		  	  <div ng-repeat="work in works">
 				<div class="col-sm-6 col-md-4">
 				  <div class="thumbnail">
-				    <img src="{{work.image}}">
-				    <div class="caption">
-				      <p>{{work.name}}</p>
-				      <p>{{work.artist}}</p>
-				      <p><a href="#" class="btn btn-primary" role="button">Detail</a> <a href="#" class="btn btn-default" role="button">Eye</a></p>
+				      <img src="{{work.image}}">
+				    <div class="work-artist-profile">
+				      <img class="img-circle" src="images/artist-profile.jpeg">
+				    </div>
+				    <div class="caption" style="padding-top: 40px;">
+				      <p><a href="#/artist/profile/1">{{work.artist}}</a></p>
+				      <p><b>{{work.name}}</b></p>
+				      <p><a href="#/" class="btn btn-primary" role="button">Detail</a> <a href="#" class="btn btn-default" role="button">wink!</a></p>
 				    </div>
 				  </div>
 				</div>
@@ -49,9 +51,9 @@
 
 		  </div>
 	  	</div>
-	  	<div role="tabpanel" class="tab-pane text-center" id="artist">
+	  	<div role="tabpanel" class="tab-pane fade text-center" id="artist">
 	  	</div>
-	  	<div role="tabpanel" class="tab-pane text-center" id="instruction">
+	  	<div role="tabpanel" class="tab-pane fade text-center" id="instruction">
 	  	  ASDS3
 	  	</div>
 	  </div>

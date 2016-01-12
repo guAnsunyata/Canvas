@@ -5,17 +5,17 @@ myApp.config(function($routeProvider){
 		controller:'HomeController',
 		templateUrl: 'views/canvas.html'
 	})
-	.when('/books', {
-		controller:'BooksController',
-		templateUrl: 'views/books.html'
+	.when('/collections/:id', {
+		controller:'collectionsController',
+		templateUrl: 'views/work.html'
 	})
-	.when('/books/details/:id',{
-		controller:'BooksController',
-		templateUrl: 'views/book_details.html'
+	.when('/artist/profile/:id',{
+		controller:'ArtistController',
+		templateUrl: 'views/artist.html'
 	})
-	.when('/books/add',{
-		controller:'BooksController',
-		templateUrl: 'views/add_book.html'
+	.when('/artist/work/:id',{
+		controller:'WorkController',
+		templateUrl: 'views/work.html'
 	})
 	.when('/books/edit/:id',{
 		controller:'BooksController',

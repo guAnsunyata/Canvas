@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px;">
+	<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; padding: 5px;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -29,15 +29,18 @@
       </div>
     </nav>
     	
-      <div ng-view></div>
+      <div class="ng-view"  autoscroll="true"></div>
 
     </div>
 	<script src="/bower_components/jquery/dist/jquery.js"></script>
 	<script src="/bower_components/angular/angular.js"></script>
 	<script src="/bower_components/angular-route/angular-route.js"></script>
 	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
 	<script src="/app.js"></script>
   <script src="/controllers/home.js"></script>
+  <script src="/controllers/artist.js"></script>
+  <script src="/controllers/work.js"></script>
 	<script src="/controllers/books.js"></script>
 	<script src="/controllers/genres.js"></script>
 </body>
