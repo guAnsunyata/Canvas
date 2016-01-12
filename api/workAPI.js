@@ -30,6 +30,10 @@ var work = {
 				name: req.body.planName3,
 				decription: req.body.planDecription3,
 				price: req.body.planPrice3
+			},{
+				name: req.body.planName4,
+				decription: req.body.planDecription4,
+				price: req.body.planPrice4
 			}]
 			//plan: req.body.plan
 		});

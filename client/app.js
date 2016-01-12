@@ -5,7 +5,7 @@ myApp.config(function($routeProvider){
 		controller:'HomeController',
 		templateUrl: 'views/canvas.html'
 	})
-	.when('/collections/:id', {
+	.when('/collections', {
 		controller:'collectionsController',
 		templateUrl: 'views/work.html'
 	})
@@ -17,9 +17,9 @@ myApp.config(function($routeProvider){
 		controller:'WorkController',
 		templateUrl: 'views/work.html'
 	})
-	.when('/books/edit/:id',{
-		controller:'BooksController',
-		templateUrl: 'views/edit_book.html'
+	.when('/payment/work/:id',{
+		controller:'WorkController',
+		templateUrl: 'views/payment.html'
 	})
 	.otherwise({
 		redirectTo: '/'

@@ -14,21 +14,18 @@ var workSchema = new Schema({
 		wName: String,
 		sizeX: Number,
 		sizeY: Number,
-		user: {
-			type: Schema.Types.ObjectId,
-			ref: 'userModel'
-		},
 		decription: String,
 		photo: String
 	},
 	score: Number,
 	style: {
 		type: Schema.Types.ObjectId,
-		ref: 'styeleModel'
+		ref: 'styleModel'
 	},
 	plan: [{
 		name: String,
 		decription: String,
+		type: String,
 		price: Number,
 	}]
 
