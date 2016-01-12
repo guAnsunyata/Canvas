@@ -6,10 +6,11 @@ var Schema = mongoose.Schema;
 	transmition : user purchased record
 	work : user's works that can be selled
 */
-var userSchema = new Schema({
+var userSchema = new Schema({//support ,follow ,beSupport, beFollow
 	addedTime: Date,
 	profile: {
 		uName: String,
+		title: String,
 		email: String,
 		password: String
 	},
@@ -18,19 +19,48 @@ var userSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'transmitionModel'
 	},
-	works: {
-		quantity: Number,
-		work:{
+	followers: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'userModel'
+		}
+	],
+	followings: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'userModel'
+		}
+	],
+	sponsors: [
+		{
+			money: Number,
+			sponsor: {
+			type: Schema.Types.ObjectId,
+			ref: 'userModel'
+			}
+		}
+	],
+	sponsorings: [
+		{
+			money: Number,
+			sponsoring: {
+			type: Schema.Types.ObjectId,
+			ref: 'userModel'
+			}
+		}
+	],
+	works: [
+		{
 			type: Schema.Types.ObjectId,
 			ref: 'workModel'
 		}
-	},
+	],
 	favoriteWork: [{
 		score: Number,
 		work:{
 			type: Schema.Types.ObjectId,
 			ref: 'workModel'
-		}	
+		}
 	}],
 	favoriteStyle: [{
 		score: Number,

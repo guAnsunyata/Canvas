@@ -30,6 +30,7 @@ var workSchema = new Schema({
 		name: String,
 		decription: String,
 		price: Number,
+		pType: String
 	}]
 
 });

@@ -1,4 +1,5 @@
 var styleModel = require('./model/styleModel');
+var workModel = require('./model/workModel');
 var style = {
 	create: function create(req, callback){
 		var new_style = new styleModel({
@@ -20,9 +21,9 @@ var style = {
 
 	findOne: function findOne(req, callback){
 		var query = {_id: req.body.style_id}
-		styleModel.findOne(query, function (err, styles){
+		styleModel.findOne(query, function (err, style){
 				if(err) throw err;
-				callback(styles);
+				callback(style);
 		});
 	},
 
@@ -49,20 +50,30 @@ var style = {
 			callback(style);
 		});
 	},
+
 	deleteAll: function deleteAll(callback){
-		userModel.remove({}, function (err, users){
+		styleModel.remove({}, function (err, styles){
 			if(err) throw err;
-			callback(users);
+			callback(styles);
 		});
 	},
 
 	deleteOne: function deleteOne(req, callback){
-		userModel.remove({_id: req.body.user_id}, function (err, user){
+		styleModel.remove({_id: req.body.style_id}, function (err, style){
 			if(err) throw err;
-			callback(user);
+			callback(style);
 		});
 	}
 
+	/*findPopularStyle: function findPopularStylek(req, callback){
+		var styles = styleModel.find({}).sort({score: 'desc'}).limit(2).exec(function (err, styles){
+			if(err) throw err;
+			callback(styles);
+		});
+		//console.log('des : ', styles._id);
+		
+
+	}*/
 
 
 

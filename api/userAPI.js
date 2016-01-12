@@ -6,6 +6,7 @@ var user = {
 			addedTime: current_data,
 			profile: {
 				uName : req.body.uName,
+				title : req.body.title,
 				email : req.body.email,
 				password : req.body.password
 			},
@@ -22,6 +23,7 @@ var user = {
 		var new_user = new userModel({
 			profile: {
 				uName : req.body.uName,
+				title : req.body.title,
 				email : req.body.email,
 				password : req.body.password
 			},
@@ -48,8 +50,16 @@ var user = {
 	},
 
 	findArtist: function findArtist(req, callback){
-		userModel.find({isArtist: 'true'}, function (err, user){
+		userModel.findOne({_id: req.body.user_id, isArtist: 1}, function (err, user){
+			if(err) throw err;
+			callback(user);
+		})
+	},
 
+	findAllArtist: function findAllArtist(req, callback){
+		userModel.find({isArtist: 1}, function (err, user){
+			if(err) throw err;
+			callback(user);
 		});
 	},
 
@@ -90,8 +100,69 @@ var user = {
 			if(err) throw err;
 			callback(user);
 		});
-	}
+	},
 
+	/*addWork: function addWork(req, callback){
+		var query = {_id: req.body.user_id}
+		userModel.update(query,
+		{ $pushAll: {works : [req.body.work_id]}},
+		 function (err, user){
+		 	if(err) throw err;
+		 	callback(user);
+		 });
+	}*/
+	addWork: function addWork(user_id, work_id){
+		var query = {_id: user_id};
+		//console.log('userAPI!');
+		userModel.update(query,
+		{ $pushAll: {works : [work_id]}}, function(err){
+			if(err) throw err;
+		});
+	},
+
+	beSponsors: function beSponsors(req, callback){
+		var query = {_id: req.body.user_id};
+		var ssponsorings ={money: req.body.money, sponsoring: req.body.sponsoring_id};
+		var _this = this;
+		userModel.update(query,
+		{ $pushAll: {sponsorings : [ssponsorings]}},
+		 function (err, user){
+		 	if(err) throw err;
+		 	_this.addSponsors(req.body.sponsoring_id, req.body.money, req.body.user_id);
+		 	callback(user);
+		 });
+	},
+
+	addSponsors: function addSponsors(user_id, smoney, sSponsors){
+		var query = {_id: user_id};
+		var sponsos ={money: smoney, sponsor: sSponsors};
+		userModel.update(query,
+		{ $pushAll: {sponsors : [sponsos]}},
+		 function (err){
+		 	if(err) throw err;
+		 });	
+	},
+
+	beFollower: function beFollower(req, callback){
+		var query = {_id: req.body.user_id};
+		var _this = this;
+		userModel.update(query,
+		{ $pushAll: {followings : [req.body.following_id]}},
+		 function (err, user){
+		 	if(err) throw err;
+		 	_this.addFollower(req.body.following_id, req.body.user_id);
+		 	callback(user);
+		 });
+	},
+
+	addFollower: function addFollower(user_id, follower){
+		var query = {_id: user_id};
+		userModel.update(query,
+		{ $pushAll: {followers : [follower]}},
+		 function (err){
+		 	if(err) throw err;
+		 });	
+	}
 
 }
 

@@ -15,16 +15,51 @@ module.exports = function (app, passport) {
 	});
 
 	app.post('/api/findAllWorks', function(req, res){
-		User.findAll(function(Works){
-			res.json(Works);
-		});
-	});
-	app.post('/api/delAllWorks', function(req, res){
-		User.deleteAll(function(Works){
-			res.status(Works).end();
+		Work.findAll(function(works){
+			res.json(works);
 		});
 	});
 
+	app.post('/api/findOneWork', function(req, res){
+		Work.findOne(req, function(work){
+			res.json(work);
+		});
+	});
+
+	app.post('/api/delOneWork', function(req, res){
+		Work.deleteOne(req, function(work){
+			res.json(work);
+		});
+	});
+
+	app.post('/api/delAllWorks', function(req, res){
+		Work.deleteAll(function(works){
+			res.status(works).end();
+		});
+	});
+
+	app.post('/api/updateWork', function(req, res){
+		Work.updateWork(req, function(work){
+			res.json(work);
+		});
+	});
+
+	app.post('/api/updateWork', function(req, res){
+		Work.updateWork(req, function(work){
+			res.json(work);
+		});
+	});
+
+
+	/*app.post('/api/findPopularStyleWork', function({Style.findPopularStyle(function(req,styles){
+		res.json(styles);
+	})}
+		,res){
+		Work.findPopularWork(req, function(works){
+			res.json(works);
+		});
+	});
+*/
 
 	//style API
 	app.post('/api/createStyle', function(req, res){
@@ -57,6 +92,18 @@ module.exports = function (app, passport) {
 		});
 	});
 
+	app.post('/api/delAllStyles', function(req, res){
+		Style.deleteAll(function(styles){
+			res.status(styles).end();
+		});
+	});
+
+	app.post('/api/delOneStyle', function(req, res){
+		Style.deleteOne(req, function(style){
+			res.json(style);
+		});
+	});
+
 
 	//user API
 	app.post('/api/createUser', function(req, res){
@@ -71,7 +118,14 @@ module.exports = function (app, passport) {
 		});
 	});
 
-	app.post('/api/getArtist', function(req, res){
+	app.post('/api/findAllArtist', function(req, res){
+		User.findAllArtist(req, function(users){
+			res.json(users);
+		});
+	});
+
+	//unDO
+	app.post('/api/findOneArtist', function(req, res){
 		User.findArtist(req, function(users){
 			res.json(users);
 		});
@@ -116,6 +170,24 @@ module.exports = function (app, passport) {
 
 	app.post('/api/becomeArtist',function(req,res){
 		User.updateArtist(req, function(user){
+			res.json(user);
+		});
+	});
+
+	app.post('/api/addWorktoUser',function(req,res){
+		User.addWork(req, function(user){
+			res.json(user);
+		});
+	});
+
+	app.post('/api/beFollower',function(req,res){
+		User.beFollower(req, function(user){
+			res.json(user);
+		});
+	});
+
+	app.post('/api/beSponsors',function(req,res){
+		User.beSponsors(req, function(user){
 			res.json(user);
 		});
 	});
