@@ -1,0 +1,194 @@
+<!-- ng-view : artist.html -->
+<div class="artist-banner-div">
+  <img src="images/pictureExample/Calligraphy/Jake Weidmann/STEWARD.jpg"/>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="artist-banner">
+      	<div class="artist-logo">
+          <img id="artist-photo" class="img-thumbnail" src="images/artist-profile.jpeg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="profile-navbar" class="navbar navbar-default">
+    <div class="row">
+      <div class="col-md-4">
+        <span id="sponsor-text"><b>粉絲</b></span>
+        <div><b>1,306</b></div>
+        <button href="" class="btn btn-fill">追隨</button>
+        <!-- <button href="" class="btn">已追隨</button> -->
+      </div>
+      <div class="col-md-4">
+        <h3><b>Jake Weidmann</b></h3>
+        <p>master penman</p>
+        <span><a href="">Twitter</a></span>
+      </div>
+      <div class="col-md-4">
+        <span id="sponsor-text"><b>贊助</b></span>
+        <div><b>$24,000 / months</b></div>
+        <a href="#" target="_blank" class="btn btn-danger btn-fill">贊助</a>
+      </div>
+    </div>
+  </div>
+  <div class="profile-works">
+    <div class="profile-about-wrapper">
+      <span id="profife-about-title">About me</span>
+      <p id="profile-about-content">
+      I am a professional artist and certified Master Penman and I live and work in Denver, Colorado. I received my Master Penman certificate through The International Association of Master Penmen, Engrossers and Teachers of Handwriting (IAMPETH) in July of 2011. I work across numerous mediums in art and calligraphy and I am most well-known for my use of flourishing and hand lettering in the context of my fine art pieces.
+      </p>
+    </div>
+    <br/>
+    <span id="profife-about-title"><b>作品集</b></span>
+    <hr style="margin: 10px 0px 10px 0px;"/>
+    <div class="work" ng-repeat="work in works">
+    <a ng-href="/#/artist/work/{{work._id}}">
+      <img data-id="{{work._id}}" ng-mouseover="hoverIn(work._id)" ng-mouseleave="hoverOut(work._id)" src="{{work.image}}" class="img-rounded img-responsive">
+    </a>
+    </div>
+    <div class="profile-tabs" style="margin-top: 30px;">
+      <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+              <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                  <li class="active"><a href="#sponsor" data-toggle="tab" aria-expanded="true">贊助人</a></li>
+                  <li class=""><a href="#follows" data-toggle="tab" aria-expanded="false">追隨者</a></li>
+              </ul>
+          </div>
+      </div>
+      <div id="my-tab-content" class="tab-content">
+          <div class="tab-pane active" id="sponsor">
+              <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                      <ul class="list-unstyled follows">
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader2.jpg" alt="Circle Image" class="img-circle img-no-padding" height="45">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>林紘丞<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;">$12,000</div>
+                                  </div>
+                              </div>
+                          </li>
+                          <hr>
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader.jpg" alt="Circle Image" class="img-circle img-no-padding" height="45">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>許韶文<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;">$6,000</div>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane fade" id="follows">
+              <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                      <ul class="list-unstyled follows">
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader2.jpg" alt="Circle Image" class="img-circle img-no-padding" height="30">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>林紘丞<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;"></div>
+                                  </div>
+                              </div>
+                          </li>
+                          <hr style="margin: 0">
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader.jpg" alt="Circle Image" class="img-circle img-no-padding" height="30">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>許韶文<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;"></div>
+                                  </div>
+                              </div>
+                          </li>
+                          <hr style="margin: 0">
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader.jpg" alt="Circle Image" class="img-circle img-no-padding" height="30">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>許韶文<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;"></div>
+                                  </div>
+                              </div>
+                          </li>
+                          <hr style="margin: 0">
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader.jpg" alt="Circle Image" class="img-circle img-no-padding" height="30">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>許韶文<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;"></div>
+                                  </div>
+                              </div>
+                          </li>
+                          <hr style="margin: 0">
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="images/dashboard-leader.jpg" alt="Circle Image" class="img-circle img-no-padding" height="30">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <h6>許韶文<br><small>Yuntech Student</small></h6>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div style="padding-top: 25px;"></div>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br/>
+      <br/>
+      
+  </div>
+  </div>
+
+  <div>
+  </div>
+
+</div>
+</div>
+<div id="bot" class="alert landing-alert section-light-brown">
+  {{artist}} © 2016
+</div>
+
+<script type="text/javascript">
+  $('.profile-tabs').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });
+  $('#my-tab-content').tab();
+</script>
