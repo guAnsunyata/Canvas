@@ -3,9 +3,29 @@ Genre =require('../models/genre');
 Book =require('../models/book');
 User =require('../api/userAPI');
 Work =require('../api/workAPI');
+Transaction =require('../api/transactionAPI');
 Style =require('../api/styleAPI');
 
 module.exports = function (app, passport) {
+	//transaction API
+
+	app.post('/api/createTransaction', function(req, res){
+		Transaction.create(req, function(transaction){
+			res.json(transaction);
+		});
+	});
+
+	app.post('/api/findAllTransaction', function(req, res){
+		Transaction.findAll(function(transactions){
+			res.json(transactions);
+		});
+	});
+
+	app.post('/api/delAllTransaction', function(req, res){
+		Transaction.deleteAll(function(transactions){
+			res.json(transactions).end();
+		});
+	});
 
 	//work API
 	app.post('/api/createWork', function(req, res){
@@ -47,6 +67,12 @@ module.exports = function (app, passport) {
 	app.post('/api/updateWork', function(req, res){
 		Work.updateWork(req, function(work){
 			res.json(work);
+		});
+	});
+
+	app.post('/api/findPlan', function(req, res){
+		Work.findPlan(req, function(plan){
+			res.json(plan);
 		});
 	});
 

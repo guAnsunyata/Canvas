@@ -65,6 +65,29 @@ var work = {
 		});
 	},
 
+	findPlan: function findPlan(req, callback){
+		workModel.find({_id: req.body.work_id}).select('plan -_id').exec(function (err, plan) {
+			console.log(plan);
+			var result = plan[0].plan.reduce(function (target, p) {
+				console.log(plan);
+			  	if (p._id == req.body.plan_id) {
+			    return target.concat(p);
+			  } else {
+			    return target
+			  }
+			}, []);
+			callback(result);
+		});
+	},
+
+
+	/*findPlan: function findPlan(req, callback){
+
+		workModel.findOne({'plan._id': req.body.plan_id}, function (err, task) { 
+			callback(task);
+		});
+	},*/
+
 	deleteOne: function deleteOne(req, callback){
 		workModel.remove({_id: req.body.work_id}, function (err, work){
 			if(err) throw err;
