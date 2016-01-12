@@ -24,7 +24,7 @@ var workSchema = new Schema({
 	score: Number,
 	style: {
 		type: Schema.Types.ObjectId,
-		ref: 'styeleModel'
+		ref: 'styleModel'
 	},
 	plan: [{
 		name: String,
