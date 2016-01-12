@@ -32,7 +32,6 @@ var work = {
 			},{
 				name: req.body.planName3,
 				decription: req.body.planDecription3,
-<<<<<<< HEAD
 				price: req.body.planPrice3,
 				pType: req.body.type3
 			},{
@@ -40,13 +39,6 @@ var work = {
 				decription: req.body.planDecription4,
 				price: req.body.planPrice4,
 				pType: req.body.type4
-=======
-				price: req.body.planPrice3
-			},{
-				name: req.body.planName4,
-				decription: req.body.planDecription4,
-				price: req.body.planPrice4
->>>>>>> origin/Dev
 			}]
 			//plan: req.body.plan
 		});
