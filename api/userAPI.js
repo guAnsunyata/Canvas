@@ -1,4 +1,7 @@
 var userModel = require('./model/userModel');
+var styleAPI = require('./styleAPI.js');
+var workAPI = require('./workAPI.js');
+
 var user = {
 	create: function create(req, callback){
 		var current_data = new Date();
@@ -116,6 +119,81 @@ var user = {
 		//console.log('userAPI!');
 		userModel.update(query,
 		{ $pushAll: {works : [work_id]}}, function(err){
+			if(err) throw err;
+		});
+	},
+
+
+	addFavoriteWork: function addFavoriteWork(user_id, work_id){
+		var query = {_id: user_id};
+		//console.log('userAPI!');
+		userModel.update(query,
+		{ $pushAll: {favoriteWork : [{score: 1, work: work_id}]}}, function(err){
+			if(err) throw err;
+		});
+	},
+
+	addFavoriteStyle: function addFavoriteStyle(user_id, style_id){
+		var query = {_id: user_id};
+		//console.log('userAPI!');
+		userModel.update(query,
+		{ $pushAll: {favoriteStyle : [{score: 1, style: style_id}]}}, function(err){
+			if(err) throw err;
+		});
+	},
+
+	incScore: function incScore(req, callback){
+		var _this = this;
+		userModel.findOne({_id: req.body.user_id, 'favoriteWork.work': req.body.work_id}, function (err, user){
+			if(user){
+				console.log('555');
+				_this.updateFavoriteWorkScore(req.body.user_id, req.body.work_id);
+			}else{				
+				console.log('user');
+				_this.addFavoriteWork(req.body.user_id, req.body.work_id);
+			}
+		});
+		userModel.findOne({_id: req.body.user_id, 'favoriteStyle.style': req.body.style_id}, function (err, user){
+			if(user){
+				_this.updateFavoriteStyleScore(req.body.user_id, req.body.style_id);
+			}else{
+				_this.addFavoriteStyle(req.body.user_id, req.body.style_id);
+			}
+		});
+		styleAPI.updateScore(req.body.style_id);
+		workAPI.updateScore(req.body.work_id);
+	},
+
+	updateFavoriteWorkScore: function updateFavoriteWorkScore(user_id, work_id){
+		// userModel.findOne({_id: user_id, 'favoriteWork.work': work_id}, function(err, user){
+		// 	function f (obj){
+		// 		if(obj == work_id){
+		// 			return true
+		// 		}else{
+		// 			return false
+		// 		}
+		// 	}
+		// 	var target = user.favoriteWork.filter(f);
+		// 	console.log(user);
+		// });
+		// userModel.update({_id: user_id, favoriteWork: {$eleMatch: {work: work_id}}}, {$inc:
+		// 	{
+		// 		score:1
+		// 	}
+		// }, function (err){
+		// 	if(err) throw err;
+		// });
+		userModel.update({favoriteWork : {$elemMatch: {"work": '56954503e79ca1845133bc5a'}}}, {$set: {'favoriteWork.$.score' : 9}}, function(err){
+			console.log(err);
+		});
+	},
+
+	updateFavoriteStyleScore: function updateFavoriteStyleScore(user_id, style_id){
+		userModel.update({_id: user_id, 'favoriteStyle.style': style_id}, {$inc:
+			{
+				score:1
+			}
+		}, function (err){
 			if(err) throw err;
 		});
 	},

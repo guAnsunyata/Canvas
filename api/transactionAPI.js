@@ -23,6 +23,13 @@ var transaction = {
 		});
 	},
 
+	findOne: function findOne(req, callback){
+		transactionModel.findOne({_id: req.body.t_id}, function (err, transaction){
+			if(err) throw err;
+			callback(transaction);
+		});
+	},
+
 	deleteAll: function deleteAll(callback){
 		transactionModel.remove({}, function (err, transactions){
 			if(err) throw err;

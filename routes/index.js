@@ -9,18 +9,28 @@ Style =require('../api/styleAPI');
 module.exports = function (app, passport) {
 	//transaction API
 
+	//complete Transaction by buyer_id, seller_id, work_id, plan_id
 	app.post('/api/createTransaction', function(req, res){
 		Transaction.create(req, function(transaction){
 			res.json(transaction);
 		});
 	});
 
+	//get All Transaction 
 	app.post('/api/findAllTransaction', function(req, res){
 		Transaction.findAll(function(transactions){
 			res.json(transactions);
 		});
 	});
 
+	//get One Transaction by t_id
+	app.post('/api/findOneTransaction', function(req, res){
+		Transaction.findOne(req, function(transaction){
+			res.json(transaction);
+		});
+	});
+
+	//delete All Transaction
 	app.post('/api/delAllTransaction', function(req, res){
 		Transaction.deleteAll(function(transactions){
 			res.json(transactions).end();
@@ -28,30 +38,35 @@ module.exports = function (app, passport) {
 	});
 
 	//work API
+
 	app.post('/api/createWork', function(req, res){
 		Work.create(req, function(work){
 			res.json(work);
 		});
 	});
 
+	//get All Work
 	app.post('/api/findAllWorks', function(req, res){
 		Work.findAll(function(works){
 			res.json(works);
 		});
 	});
 
+	//get a Work by work_id
 	app.post('/api/findOneWork', function(req, res){
 		Work.findOne(req, function(work){
 			res.json(work);
 		});
 	});
 
+	//delete a work by work_id
 	app.post('/api/delOneWork', function(req, res){
 		Work.deleteOne(req, function(work){
 			res.json(work);
 		});
 	});
 
+	//delete All work
 	app.post('/api/delAllWorks', function(req, res){
 		Work.deleteAll(function(works){
 			res.status(works).end();
@@ -64,12 +79,7 @@ module.exports = function (app, passport) {
 		});
 	});
 
-	app.post('/api/updateWork', function(req, res){
-		Work.updateWork(req, function(work){
-			res.json(work);
-		});
-	});
-
+	//get a plan by work_id, plan_id 
 	app.post('/api/findPlan', function(req, res){
 		Work.findPlan(req, function(plan){
 			res.json(plan);
@@ -138,44 +148,53 @@ module.exports = function (app, passport) {
 		});
 	});
 
+	app.post('/api/incScore', function(req){
+		User.incScore(req);
+	});
+
 	app.post('/api/createArtist', function(req, res){
 		User.createArtist(req, function(user){
 			res.json(user);
 		});
 	});
 
+	//get all artist
 	app.post('/api/findAllArtist', function(req, res){
 		User.findAllArtist(req, function(users){
 			res.json(users);
 		});
 	});
 
-	//unDO
+	//get a artist by user_id
 	app.post('/api/findOneArtist', function(req, res){
 		User.findArtist(req, function(users){
 			res.json(users);
 		});
 	});
 
+	//get all user
 	app.post('/api/findAllUsers', function(req, res){
 		User.findAll(function(users){
 			res.json(users);
 		});
 	});
 
-
+	//get a user by user_id
 	app.post('/api/findOneUser', function(req, res){
 		User.findOne(req, function(user){
 			res.json(user);
 		});
 	});
 
+	//delete all user
 	app.post('/api/delAllUsers', function(req, res){
 		User.deleteAll(function(users){
 			res.status(users).end();
 		});
 	});
 
+
+	//delete a user_id
 	app.post('/api/delOneUser', function(req, res){
 		User.deleteOne(req, function(user){
 			res.json(user);

@@ -51,6 +51,18 @@ var work = {
 		});
 	},
 
+
+	updateScore: function updateScore(work_id){
+		var query = {_id: work_id}
+		workModel.update(query, {$inc:
+			{
+				score:1
+			}
+		}, function (err){
+			if(err) throw err;
+		});
+	},
+
 	findAll: function findAll(callback){
 		workModel.find({}, function (err, works){
 				if(err) throw err;
@@ -144,6 +156,16 @@ var work = {
 				});
 	},
 
+	updateScore: function updateScore(work_id){
+		var query = {_id: work_id}
+		workModel.update(query, {$inc:
+			{
+				score:1
+			}
+		}, function (err){
+			if(err) throw err;
+		});
+	}
 	/*findPopularWork: function findPopularWork(req, callback){
 		var styles = styleModel.find({}).sort({score: 'desc'}).limit(2).exec(function (err, styles){
 			if(err) throw err;

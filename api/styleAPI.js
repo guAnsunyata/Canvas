@@ -39,15 +39,14 @@ var style = {
 		});
 	},
 	//weirdCar.update({$inc: {wheels:1}}, { w: 1 }, callback);
-	updateScore: function updateScore(req, callback){
-		var query = {_id: req.body.style_id}
+	updateScore: function updateScore(style_id){
+		var query = {_id: style_id}
 		styleModel.update(query, {$inc:
 			{
 				score:1
 			}
-		}, function (err, style){
+		}, function (err){
 			if(err) throw err;
-			callback(style);
 		});
 	},
 
