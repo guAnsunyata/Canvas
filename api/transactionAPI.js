@@ -44,18 +44,22 @@ var transaction = {
 			if(err) throw err;
 			callback(transaction);
 		});*/
-		workModel
-		.findOne({_id: req.body.work_id})
-		.populate({
-			path: 'profile.user'
-		})
-		.populate({
-			path: 'style'
-		})
-		.exec(function (err, data) {
-			if(err) throw err;
-			callback(data);
-		})
+		transactionModel.findOne({_id: req.body.t_id})
+			.populate({
+				path: 'buyer'
+			})
+			.populate({
+				path: 'seller'
+			})
+			.populate({
+				path: 'works'
+			})
+			.exec(function (err, t) {
+				workAPI.findPlan(req.body.work_id, req.body.plan_id, function(p){
+					//console.log(t);
+					callback(t, p);	
+				});	
+			})
 	},
 
 	deleteAll: function deleteAll(callback){

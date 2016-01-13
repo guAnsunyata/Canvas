@@ -26,8 +26,9 @@ module.exports = function (app, passport) {
 
 	//get One Transaction by t_id
 	app.post('/api/findOneTransaction', function(req, res){
-		Transaction.findOne(req, function(transaction){
-			res.json(transaction);
+		Transaction.findOne(req, function(transaction, plan){
+			var data={transactions: transaction, plans: plan[0]};
+			res.json(data);
 		});
 	});
 
