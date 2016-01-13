@@ -64,10 +64,22 @@ var work = {
 	},
 
 	findAll: function findAll(callback){
-		workModel.find({}, function (err, works){
-				if(err) throw err;
-				callback(works);
-		});
+		// workModel.find({}, function (err, works){
+		// 		if(err) throw err;
+		// 		callback(works);
+		// });
+		workModel
+		.find({})
+		.populate({
+			path: 'profile.user'
+		})
+		.populate({
+			path: 'style'
+		})
+		.exec(function (err, data) {
+			if(err) throw err;
+			callback(data);
+		})
 	},
 
 	findOne: function findOne(req, callback){
