@@ -1,0 +1,85 @@
+<div id="plan-work-name" style="margin-top: 9%; text-align:center">
+</div>
+<div class="container" style="margin-top: 2%; text-align: center">
+	<div style="text-align: center; margin-bottom: -23px;">
+	  <button class="btn" style="background-color: #FFFCF5">購買版權</button>
+	</div>
+	<div id="plan-wrapper">
+		<div id="plan-work-name">
+		  <h4>{{works.name}}</h4>
+		  <a href="#/artist/profile/1">{{artist}}</a>
+		</div>
+		<div id="plan-items" style="display: inline-block; text-align: left;">
+			<h5 style="font-weight: 700">{{works.plan.name}} - ${{works.plan.price}}</h5>
+		</div>
+		<div><img src="images/item.png" height="170"></div>
+		<div style="padding: 20px 15% 0 15%">
+		  <label style="font-size: 14px;">請說明版權使用方式及範圍</label>
+          <textarea class="form-control" rows="4" placeholder="Tell {{works.artist}} your thoughts and feelings..."></textarea>
+		</div>
+		<div>
+            <div class="checkbox" style="font-size: 14px; padding-left: 0px">
+			  <label>
+			    <input type="checkbox" class="regular-checkbox" value="">
+			    隱藏授權碼查詢系統中公開的買家資訊
+			  </label>
+			</div>
+        </div>
+		<hr/>
+		<div id="plan-des">
+		購買授權類型版權，完成付費後將會收到一組唯一的授權碼，客戶即可依版權所制定的內容進行使用，所有行為皆受法律管轄，雙方將保留法律追溯的權力。客戶可依驗證碼搜尋授權記錄及雙方的電子同意書，所有資料皆具有法律效用。
+		</div>
+	</div>
+	<div id="payment-wrapper" style="background-color: #F4F3EF">
+		<div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h4 class="text-center">信用卡資訊</h4>
+                <hr/>
+                <form id="payment-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>購買人姓名</label>
+                            <input class="form-control" placeholder="Name">
+                        </div>
+                        <div class="col-md-6">
+                            <label>聯絡電話</label>
+                            <input class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>信用卡號碼</label>
+                            <input class="form-control" placeholder="number">
+                        </div>
+                        <div class="col-md-6">
+                            <label>安全碼CVV</label>
+                            <input class="form-control" placeholder="CVV">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>信用卡期限</label>
+                            <input class="form-control" placeholder="Expire MM/YYYY">
+                        </div>
+                        <div class="col-md-6">
+                            <label>持卡人姓名</label>
+                            <input class="form-control" placeholder="card hoster">
+                        </div>
+                    </div>
+                    <div class="row">
+                      <hr/>
+                      {{works.plan.name}}({{works.name}}, {{works.artist}})
+                      <div id="total">總金額 TWD${{works.plan.price}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="margin-top: 40px; text-align: center;">
+                            <button class="btn btn-danger btn-fill" ng-click="goSuccess(works._id)">結帳</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+	</div>
+</div>
+<br/>
+<br/>

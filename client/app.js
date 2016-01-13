@@ -21,6 +21,18 @@ myApp.config(function($routeProvider){
 		controller:'WorkController',
 		templateUrl: 'views/payment.html'
 	})
+	.when('/sponse/profile/:id',{
+		controller:'SponseController',
+		templateUrl: 'views/sponse.html'
+	})
+	.when('/transaction/:id',{
+		controller:'TransactionController',
+		templateUrl: 'views/transaction.html'
+	})
+	.when('/dashboard',{
+		controller:'DashboardController',
+		templateUrl: 'views/dashboard/Dashboard.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

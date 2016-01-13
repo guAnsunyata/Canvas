@@ -1,6 +1,6 @@
 /* global */
 body{
-	background-color: #FFFCF5;
+	background-color: #FFFAED;
 }
 .origin{
 	color: #EA5D20 !important;
@@ -34,20 +34,30 @@ body{
 	font-size: 26px;
 }
 .work-img{
-	margin-bottom: 30px;
+
 }
 .work-img img{
-	width: 400px;
+
+}
+.thumbnail>img{
+	max-width: 330px;
+	min-height: 300px;
+	max-height: 300px;
 }
 .work-artist-profile{
 	position: absolute;
-	top: 320px;
+	bottom: 150px;
 	left: 50%;
 	margin-left: -35px;
 	z-index: 99;
+	
 }
 .work-artist-profile img{
 	width: 70px;
+}
+.caption{
+	padding-top: 5px;
+	/*background-color: #66615B;*/
 }
 
 /* artist */
@@ -129,6 +139,7 @@ body{
 	height: 45px;
 }
 #plan-wrapper{
+	background-color: #F4F3EF;
 	margin: 0 auto;
 	width: 60%;
 	min-height: 400px;
@@ -159,7 +170,26 @@ body{
 	text-align: left;
 	font-size: 12px;
 }
-
+/* payment.html */
+#payment-wrapper{
+	background-color: #F4F3EF;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 60%;
+	min-height: 400px;
+	border-style: solid;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+#payment-form .row{
+	text-align: left;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+#total{
+	font-size: 26px;
+}
 
 
 

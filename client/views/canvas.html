@@ -32,18 +32,18 @@
 
 	  <div class="tab-content">
 	  	<div role="tabpanel" class="tab-pane fade text-center in active" id="works">
-	  	  <div class="row">
+	  	  <div class="row" style="-webkit-column-count: 1.5;">
 		  	  <div ng-repeat="work in works">
-				<div class="col-sm-6 col-md-4">
+				<div class="col-md-4">
 				  <div class="thumbnail">
-				      <img src="{{work.image}}">
+				      <img src="{{work.profile.photo}}">
 				    <div class="work-artist-profile">
-				      <img class="img-circle" src="images/artist-profile.jpeg">
+				      <img class="img-circle" src="{{work.profile.user.profile.photo}}">
 				    </div>
-				    <div class="caption" style="padding-top: 40px;">
-				      <p><a href="#/artist/profile/1">{{work.artist}}</a></p>
-				      <p><b>{{work.name}}</b></p>
-				      <p><a href="#/" class="btn btn-primary" role="button">Detail</a> <a href="#" class="btn btn-default" role="button">wink!</a></p>
+				    <div class="caption" style="padding-top: 50px;">
+				      <p><a href="#/artist/profile/1">{{work.profile.user.profile.uName}}</a></p>
+				      <p><b style="color: #66615B">{{work.profile.wName}}</b></p>
+				      <p><a href="#/artist/work/{{work._id}}" class="btn btn-primary btn-fill" role="button">Detail</a> <a href="#" class="btn btn-danger btn-fill" role="button">wink!</a></p>
 				    </div>
 				  </div>
 				</div>
@@ -52,6 +52,12 @@
 		  </div>
 	  	</div>
 	  	<div role="tabpanel" class="tab-pane fade text-center" id="artist">
+	  		<div ng-repeat="artist in artists">
+	  			<div style="float: left; margin: 12px 12px 12px 12px">
+		  			<img src="{{artist.profile.photo}}" class="img-thumbnail" width="150" height="150" />
+		  			<br/><b>{{artist.profile.uName}}</b>
+	  			</div>
+	  		</div>
 	  	</div>
 	  	<div role="tabpanel" class="tab-pane fade text-center" id="instruction">
 	  	  ASDS3

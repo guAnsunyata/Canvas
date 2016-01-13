@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Dashboard</title>
+    <style type="text/css">
+
+    	body{
+    		background-color: #FFFAED;
+    	}
+
+		.wrapper {
+		    margin: 15px 15px 15px 15px;
+		    border-radius: 10px;
+		}
+
+		.wrapper.blue{
+			background-color: #3991db;
+		}
+
+		.wrapper.leaf{
+			background-color: #c2db39;
+		}
+
+		.wrapper.flower{
+			background-color: #9139db;
+		}
+
+		.wrapper.fruit{
+			background-color: #db9839;
+		}
+
+		.wrapper.oil{
+			background-color: #d9db39;
+		}
+
+		.wrapper.dark{
+			background-color: #555;
+		}
+
+		.header {
+			border-radius: 10px 10px 0 0px;
+		    padding: 0 0 0 10px;
+		    min-height: 38px;
+		    line-height: 45px;
+		    border-bottom: 2px solid #ddd;
+		    background-color: #eee;
+		    opacity: 0.75;
+		    font-family: Adobe Fan Heiti Std;
+		    font-size: 20px;
+		    font-weight: 700;
+		}
+
+		.fucker{
+			min-height: 150px;
+			padding: 40px 30px 10px 30px;
+			color : #fff;
+		}
+
+		.icon{
+			float: left;
+			font-size: 26px;
+		}
+
+		.num{
+			float: right;
+			font-size: 30px;
+			padding: 10px 0 0 0;
+			font-family: Adobe Fan Heiti Std;
+			font-weight: bold;
+		}
+
+		.Style_Wrapper{
+			margin: 15px 15px 15px 0px;
+		}
+
+		.Style_Header{
+			margin: 20px 0 0 15px;
+		    padding: 10 0 10 20px;
+		    min-height: 38px;
+		    line-height: 45px;
+		    border-bottom: 2px solid #ddd;
+		    background-color: #eee;
+		    opacity: 0.7;
+		    font-family: Adobe Fan Heiti Std;
+		    font-size: 30px;
+		    font-weight: bold;
+		}
+
+		.Style_Fucker{
+			margin: 0 0 0 15px;
+			min-height: 500px;
+		    background-color: #eee;
+		    border-bottom: 2px solid #ddd;
+		}
+
+		.ProgressbarAndStyleName{
+			margin : 0 0 10 20px;
+			font-family: Adobe Fan Heiti Std;
+		    font-size: 20px;
+		    padding : 15 0 0 0px;
+		}
+
+		progress {
+		    border: 0;
+		    height: 18px;
+		    border-radius: 5px;
+		    margin : 0 0 0 0px;
+		    min-width: 75%;
+		}
+
+		.progressBar{
+			width: 400px;
+			height: 22px;
+			background-color: rgba(0,0,0,0);
+		}
+
+		.progressBar div {
+			height: 100%;
+			color: #fff;
+			text-align: right;
+			line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+			width: 0;
+			background-color: #db9839;
+		}
+
+		progress::-webkit-progress-value
+		{
+			background: blue;
+		}
+		.my-container{
+			margin: 0px 12% 0px 12%;
+		}
+
+    </style>
+  </head>
+  <body>
+<div class="my-container" style="margin-top: 8%">
+    <div class="col-md-4">
+    	<div class="wrapper blue">
+			<div class="header">
+				獲利
+			</div>
+			<div class="fucker">
+				<div class="icon">
+					<img src="/images/profit.png" width="60px" height="60px"><br>
+				</div>
+				<div class="num">
+					160K
+				</div>
+			</div>
+		</div>
+		<div class="wrapper leaf">
+			<div class="header">
+				成交價
+			</div>
+			<div class="fucker">
+				<div class="icon">
+					<img src="/images/deal.png" width="60px" height="60px"><br>
+				</div>
+				<div class="num">
+					4445K
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+    	<div class="wrapper flower">
+			<div class="header">
+				作品點擊
+			</div>
+			<div class="fucker">
+				<div class="icon">
+					<img src="/images/mouse.png" width="60px" height="60px"><br>
+				</div>
+				<div class="num">
+					8b
+				</div>
+			</div>
+		</div>
+		<div class="wrapper fruit">
+			<div class="header">
+				新作品數
+			</div>
+			<div class="fucker">
+				<div class="icon">
+					<img src="/images/new works.png" width="60px" height="60px"><br>
+				</div>
+				<div class="num">
+					48
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+    	<div class="wrapper oil">
+			<div class="header">
+				會員數
+			</div>
+			<div class="fucker">
+				<div class="icon">
+					<img src="/images/users.png" width="60px" height="60px"><br>
+				</div>
+				<div class="num">
+					100k
+				</div>
+			</div>
+		</div>
+		<div class="wrapper dark">
+			<div class="header">
+				作家數
+			</div>
+			<div class="fucker">
+				<div class="icon">
+					<img src="/images/draw.png" width="60px" height="60px"><br>
+				</div>
+				<div class="num">
+					2k
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = "col-md-6">
+		<div class = "Style_Wrapper">
+			<div class = "Style_Header">
+				最受歡迎的種類
+			</div>
+			<div class = "Style_Fucker">
+				<div class = "ProgressbarAndStyleName">
+					<div class="Style-name"></div>
+					<div class="progressBar" id="max92"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max10"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class = "col-md-6">
+		<div class = "Style_Wrapper">
+			<div class = "Style_Header">
+				最受歡迎的作家
+			</div>
+			<div class = "Style_Fucker">
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+				<div class = "ProgressbarAndStyleName">
+					<span class="Style-name"></span>
+					<div class="progressBar" id="max50"><div></div></div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>    
+  </body>
+
+	
+</html>
