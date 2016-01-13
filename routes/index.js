@@ -11,8 +11,9 @@ module.exports = function (app, passport) {
 
 	//complete Transaction by buyer_id, seller_id, work_id, plan_id
 	app.post('/api/createTransaction', function(req, res){
-		Transaction.create(req, function(transaction){
-			res.json(transaction);
+		Transaction.create(req, function(transaction, plan){
+			var data={transactions: transaction, plans: plan[0]};
+			res.json(data);
 		});
 	});
 

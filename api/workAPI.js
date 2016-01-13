@@ -102,12 +102,12 @@ var work = {
 		})
 	},
 
-	findPlan: function findPlan(req, callback){
-		workModel.find({_id: req.body.work_id}).select('plan -_id').exec(function (err, plan) {
-			console.log(plan);
+	findPlan: function findPlan(work_id, plan_id, callback){
+		workModel.find({_id: work_id}).select('plan -_id').exec(function (err, plan) {
+			//console.log(plan);
 			var result = plan[0].plan.reduce(function (target, p) {
-				console.log(plan);
-			  	if (p._id == req.body.plan_id) {
+				//console.log(plan);
+			  	if (p._id == plan_id) {
 			    return target.concat(p);
 			  } else {
 			    return target

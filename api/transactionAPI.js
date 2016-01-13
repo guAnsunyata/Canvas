@@ -1,4 +1,5 @@
 var transactionModel = require('./model/transactionModel');
+var workAPI = require('./workAPI.js');
 var workModel = require('./model/workModel');
 var transaction = {
 	create: function create(req, callback){
@@ -11,8 +12,23 @@ var transaction = {
 			transactionTime: current_data
 		});
 		new_transaction.save(function (err, transaction){
-			if(err) throw err;
-			callback(transaction);
+			transactionModel.findOne({_id: transaction._id})
+			.populate({
+				path: 'buyer'
+			})
+			.populate({
+				path: 'seller'
+			})
+			.populate({
+				path: 'works'
+			})
+			.exec(function (err, t) {
+				workAPI.findPlan(req.body.work_id, req.body.plan_id, function(p){
+					//console.log(t);
+					callback(t, p);	
+				});	
+			})
+			
 		});
 	},
 
@@ -24,10 +40,22 @@ var transaction = {
 	},
 
 	findOne: function findOne(req, callback){
-		transactionModel.findOne({_id: req.body.t_id}, function (err, transaction){
+		/*transactionModel.findOne({_id: req.body.t_id}, function (err, transaction){
 			if(err) throw err;
 			callback(transaction);
-		});
+		});*/
+		workModel
+		.findOne({_id: req.body.work_id})
+		.populate({
+			path: 'profile.user'
+		})
+		.populate({
+			path: 'style'
+		})
+		.exec(function (err, data) {
+			if(err) throw err;
+			callback(data);
+		})
 	},
 
 	deleteAll: function deleteAll(callback){
