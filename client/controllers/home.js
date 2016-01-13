@@ -7,7 +7,21 @@ myApp.controller('HomeController', ['$scope', '$http', '$location', '$routeParam
 		console.log(data);
 		data.reverse();
 		var result = [];
-		result = data.slice(0,15);
+		result.push(data[0]);
+		result.push(data[4]);
+		result.push(data[8]);
+		result.push(data[9]);
+		result.push(data[12]);
+		result.push(data[14]);
+		result.push(data[21]);
+		result.push(data[27]);
+		result.push(data[30]);
+		result.push(data[31]);
+		result.push(data[34]);
+		result.push(data[35]);
+		result.push(data[37]);
+		result.push(data[41]);
+		result.push(data[43]);
 		$scope.works = result;
 	});
 

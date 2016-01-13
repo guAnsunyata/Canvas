@@ -7,6 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<div ng-controller="LoginController">
 	<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; padding: 5px;">
       <div class="container">
         <div class="navbar-header">
@@ -22,10 +23,10 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#" target="_blank" class="btn btn-fill">Login</a>
+              <a id="login" href="#/login" class="btn btn-fill">Login</a>
             </li>
             <li>
-              <a>signUp</a>
+              <a id="signUp" href="#/signup">signUp</a>
             </li>
           </ul>
         </div>
@@ -41,6 +42,7 @@
 	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
 	<script src="/app.js"></script>
+  <script src="/controllers/SignupController.js"></script>
   <script src="/controllers/dashboard.js"></script>
   <script src="/controllers/home.js"></script>
   <script src="/controllers/artist.js"></script>
@@ -49,5 +51,6 @@
   <script src="/controllers/transaction.js"></script>
 	<script src="/controllers/books.js"></script>
 	<script src="/controllers/genres.js"></script>
+</div>
 </body>
 </html>

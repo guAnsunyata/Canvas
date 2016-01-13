@@ -10,7 +10,7 @@
 		  <a href="#/artist/profile/1">{{artist}}</a>
 		</div>
 		<div id="plan-items" style="display: inline-block; text-align: left;">
-			<h5 style="font-weight: 700">{{works.plan.name}} - ${{works.plan.price}}</h5>
+			<h5 style="font-weight: 700">{{onePlan.name}} - ${{onePlan.price}}</h5>
 		</div>
 		<div><img src="images/item.png" height="170"></div>
 		<div style="padding: 20px 15% 0 15%">
@@ -68,8 +68,8 @@
                     </div>
                     <div class="row">
                       <hr/>
-                      {{works.plan.name}}({{works.name}}, {{works.artist}})
-                      <div id="total">總金額 TWD${{works.plan.price}}</div>
+                      {{onePlan.name}}({{work.profile.wName}}, {{work.profile.user.profile.uName}})
+                      <div id="total">總金額 TWD${{onePlan.price}}</div>
                     </div>
                     <div class="row">
                         <div class="col-md-12" style="margin-top: 40px; text-align: center;">
