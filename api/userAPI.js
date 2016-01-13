@@ -59,6 +59,23 @@ var user = {
 		})
 	},
 
+	findOneArtist: function findOneArtist(req, callback){
+		// workModel.find({}, function (err, works){
+		// 		if(err) throw err;
+		// 		callback(works);
+		// });
+		userModel
+		.findOne({_id: req.body.user_id, isArtist: 1})
+		.populate({
+			path: 'works'
+		})
+		.exec(function (err, data) {
+			if(err) throw err;
+			callback(data);
+		})
+	},
+
+
 	findAllArtist: function findAllArtist(req, callback){
 		userModel.find({isArtist: 1}, function (err, user){
 			if(err) throw err;

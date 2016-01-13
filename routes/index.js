@@ -167,8 +167,8 @@ module.exports = function (app, passport) {
 
 	//get a artist by user_id
 	app.post('/api/findOneArtist', function(req, res){
-		User.findArtist(req, function(users){
-			res.json(users);
+		User.findOneArtist(req, function(user){
+			res.json(user);
 		});
 	});
 

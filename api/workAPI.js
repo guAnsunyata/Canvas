@@ -83,10 +83,23 @@ var work = {
 	},
 
 	findOne: function findOne(req, callback){
-		workModel.findOne({_id: req.body.work_id}, function (err, work){
+		/*workModel.findOne({_id: req.body.work_id}, function (err, work){
 			if(err) throw err;
 			callback(work);
-		});
+		});*/
+
+		workModel
+		.findOne({_id: req.body.work_id})
+		.populate({
+			path: 'profile.user'
+		})
+		.populate({
+			path: 'style'
+		})
+		.exec(function (err, data) {
+			if(err) throw err;
+			callback(data);
+		})
 	},
 
 	findPlan: function findPlan(req, callback){
