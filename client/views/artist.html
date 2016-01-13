@@ -1,18 +1,18 @@
 <!-- ng-view : artist.html -->
 <div class="artist-banner-div">
-  <img src="images/pictureExample/Calligraphy/Jake Weidmann/STEWARD.jpg"/>
+  <img src="{{banner}}"/>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="artist-banner">
       	<div class="artist-logo">
-          <img id="artist-photo" class="img-thumbnail" src="images/artist-profile.jpeg" />
+          <img id="artist-photo" class="img-thumbnail" src="{{data.profile.photo}}" />
         </div>
       </div>
     </div>
   </div>
-  <div id="profile-navbar" class="navbar navbar-default">
+  <div id="profile-navbar" class="navbar navbar-default" style="border-radius: 15px;">
     <div class="row">
       <div class="col-md-4">
         <span id="sponsor-text"><b>粉絲</b></span>
@@ -21,8 +21,8 @@
         <!-- <button href="" class="btn">已追隨</button> -->
       </div>
       <div class="col-md-4">
-        <h3><b>Jake Weidmann</b></h3>
-        <p>master penman</p>
+        <h3><b>{{data.profile.uName}}</b></h3>
+        <p>{{data.profile.title}}</p>
         <span><a href="">Twitter</a></span>
       </div>
       <div class="col-md-4">
@@ -44,7 +44,7 @@
     <hr style="margin: 10px 0px 10px 0px;"/>
     <div class="work" ng-repeat="work in works">
     <a ng-href="/#/artist/work/{{work._id}}">
-      <img data-id="{{work._id}}" ng-mouseover="hoverIn(work._id)" ng-mouseleave="hoverOut(work._id)" src="{{work.image}}" class="img-rounded img-responsive">
+      <img data-id="{{work._id}}" ng-mouseover="hoverIn(work._id)" ng-mouseleave="hoverOut(work._id)" src="{{work.profile.photo}}" class="img-rounded img-responsive">
     </a>
     </div>
     <div class="profile-tabs" style="margin-top: 30px;">
@@ -182,7 +182,7 @@
 </div>
 </div>
 <div id="bot" class="alert landing-alert section-light-brown">
-  {{artist}} © 2016
+  {{data.profile.uName}} © 2016
 </div>
 
 <script type="text/javascript">
