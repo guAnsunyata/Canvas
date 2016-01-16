@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
 var bodyParser = require('body-parser');
 var mongoose = require('./api/db');
 
@@ -11,5 +12,7 @@ app.use(bodyParser.json());
 require('./routes/index')(app);
 //bradley in !
 
-app.listen(3000);
-console.log('Running on port 3000...');
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', http.address().port);
+});
+// console.log('Running on port 3000...');
